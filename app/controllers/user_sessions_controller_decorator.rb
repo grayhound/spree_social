@@ -7,7 +7,7 @@ UserSessionsController.class_eval do
     if not current_user
       flash[:error] = I18n.t("devise.failure.invalid")
       @user = User.find(params['user']['id'])
-      render(:template => 'users/merge')
+      return render(:template => 'users/merge')
     end
 
     # prep for all the shifting and do it
