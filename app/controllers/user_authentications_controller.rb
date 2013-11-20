@@ -12,7 +12,7 @@ class UserAuthenticationsController < Spree::BaseController
       sign_in(@user, :event => :authentication) unless current_user
       redirect_back_or_default(products_path)
     else
-      flash.now[:error] = "There is already an account with that email. Please sign in to associate these accounts."
+      flash.now[:error] = "Данный email уже зарегистрирован. Необходимо авторизоваться, чтобы связать ваш аккаунт на сайте и аккаунт в социальной сети."
       render(:template => 'users/merge')
     end
   end
