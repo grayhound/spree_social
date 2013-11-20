@@ -4,6 +4,11 @@ UserSessionsController.class_eval do
     # now sign in from the login form
     authenticate_user!
 
+    if not user_signed_in?
+      flash[:error] = I18n.t("devise.failure.invalid")
+      redirect_to request.referrer
+    end
+
     # prep for all the shifting and do it
     user = User.find(current_user.id)
     user.user_authentications << UserAuthentication.find(params[:user_authentication])
