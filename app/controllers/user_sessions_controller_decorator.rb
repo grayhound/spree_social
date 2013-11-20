@@ -6,7 +6,7 @@ UserSessionsController.class_eval do
 
     if not current_user
       flash[:error] = I18n.t("devise.failure.invalid")
-      return redirect_to request.referrer
+      render(:template => 'users/merge')
     end
 
     # prep for all the shifting and do it
