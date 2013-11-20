@@ -1,3 +1,4 @@
+#encoding: utf-8
 class UserAuthenticationsController < Spree::BaseController
 
   def update
